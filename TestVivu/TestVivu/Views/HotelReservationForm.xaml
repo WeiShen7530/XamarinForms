@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.HotelReservationForm"
+             xmlns:viewModels="clr-namespace:TestVivu.ViewModels"
+             Title="Thông tin Đặt phòng"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <viewModels:UserEmailViewModel></viewModels:UserEmailViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label Text="Vui lòng điền đầy đủ thông tin!"
+                   FontSize="24" FontAttributes="Bold"
+                   TextColor="DarkOrange" HorizontalOptions="Center">
+            </Label>
+
+            <ScrollView>
+                <StackLayout>
+                    <Entry Placeholder="Họ và Tên" x:Name="txtName" Margin="5" FontSize="20"></Entry>
+                    <Entry Placeholder="Email" x:Name="txtEmail" Margin="5"
+                           FontSize="20" Keyboard="Email" Text="{Binding Username}"></Entry>
+                    <Entry Placeholder="Số điện thoại" x:Name="txtPhone" Margin="5"
+                           FontSize="20" Keyboard="Telephone"></Entry>
+                    <Entry Placeholder="Địa chỉ" x:Name="txtAddress" Margin="5" FontSize="20"></Entry>
+
+                    <Grid Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Ngày nhận phòng" FontSize="18" FontAttributes="Bold" Visual="Default"
+                               Grid.Row="0" Grid.Column="0"></Label>
+                        <DatePicker x:Name="dateCheckIn" Visual="Default"
+                                    Grid.Row="1" Grid.Column="0"></DatePicker>
+
+                        <Label Text="Ngày trả phòng" FontSize="18" FontAttributes="Bold" Visual="Default"
+                               Grid.Row="0" Grid.Column="1"></Label>
+                        <DatePicker x:Name="dateCheckOut" Visual="Default"
+                                    Grid.Row="1" Grid.Column="1"></DatePicker>
+                    </Grid>
+
+                    <Label Text="Loại phòng" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="Chuẩn" GroupName="RoomPreference"
+                                     Grid.Column="0" IsChecked="True"
+                                     x:Name="StandardRoom" FontSize="18">
+                        </RadioButton>
+                        <RadioButton Grid.Column="1" Content="Sang trọng"
+                                     x:Name="DeluxeRoom" GroupName="RoomPreference"
+                                     FontSize="18">
+                        </RadioButton>
+                        <RadioButton Grid.Column="2" Content="Thượng hạng"
+                                     x:Name="SuiteRoom" GroupName="RoomPreference"
+                                     FontSize="18">
+                        </RadioButton>
+                    </Grid>
+
+                    <Label Text="Người lớn" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Picker x:Name="pkrAdults" Title="Chọn số lượng" Visual="Default">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
+                            <x:String>10</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label Text="Trẻ em" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Picker x:Name="pkrChildren" Title="Chọn số lượng" Visual="Default">
+                        <Picker.Items>
+                            <x:String>0</x:String>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label Text="Yêu cầu khác" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Editor Placeholder="Viết tại đây..." FontSize="20"
+                            Visual="Default" HeightRequest="150" x:Name="txtSpecialRequests"></Editor>
+                </StackLayout>
+            </ScrollView>
+            
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+                </Grid>
+                <!--<Label Grid.Column="0" Grid.Row="0" FontSize="20"
+                       x:Name="MoneyLbl"></Label>-->
+                
+                <Button Grid.Row="0"
+                        Text="ĐẶT" x:Name="ReserveBtn" FontSize="20"
+                        VerticalOptions="End" FontAttributes="Bold"
+                        CornerRadius="10" BackgroundColor="DeepSkyBlue"
+                        Clicked="ReserveBtn_Clicked">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.EditUserProfile"
+             Title="Chi tiết của bạn"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label Text="Chỉnh sửa thông tin của bạn!"
+                    FontSize="25" FontAttributes="Bold"
+                    TextColor="DarkOrange" HorizontalOptions="Center">
+            </Label>
+
+            <Entry Placeholder="Họ và tên" Margin="5" FontSize="20"></Entry>
+            <Entry Placeholder="Tên hiển thị" Margin="5" FontSize="20"></Entry>
+            <Entry Placeholder="Email" x:Name="txtEmail" Margin="5" FontSize="20"></Entry>
+            <Entry Placeholder="Số điện thoại" x:Name="txtPhone" Margin="5" FontSize="20"></Entry>
+            <Entry Placeholder="Địa chỉ" x:Name="txtAddress" Margin="5" FontSize="20"></Entry>
+
+            <Button Text="Lưu" BackgroundColor="DeepSkyBlue"
+                    FontSize="20" FontAttributes="Bold"
+                    CornerRadius="10" Margin="5"></Button>
+
+            <Button Text="Đăng xuất" BackgroundColor="DarkOrange"
+                    FontSize="20" FontAttributes="Bold"
+                    CornerRadius="10" Margin="5"
+                    Command="{Binding LogoutCommand}"
+                    x:Name="LogoutBtn" Clicked="LogoutBtn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

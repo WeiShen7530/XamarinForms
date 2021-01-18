@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:TestVivu.Views"
+       xmlns:controls="clr-namespace:TestVivu.Controls"
+       x:Class="TestVivu.Views.AppShell">
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader></controls:FlyoutHeader>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Trang chủ" Icon="HomePageIcon.png">
+        <ShellContent>
+            <views:HomePage></views:HomePage>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Thông tin đặt phòng" Icon="ReserveIcon.png">
+        <ShellContent>
+            <views:ReserveInfoPage></views:ReserveInfoPage>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Thông tin tài khoản" Icon="AccountIcon.png">
+        <ShellContent>
+            <views:UserProfile></views:UserProfile>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Địa điểm" Icon="LocationIcon.png">
+        <ShellContent>
+            <views:LocationPage></views:LocationPage>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Khách sạn" Icon="HotelIcon.png">
+        <ShellContent>
+            <views:AllHotelPage></views:AllHotelPage>
+        </ShellContent>
+    </FlyoutItem>
+
+    <ShellContent Title="Về chúng tôi" Icon="info.png">
+        <views:AboutPage></views:AboutPage>
+    </ShellContent>
+    
+    <!--<MenuItem Text="Trợ giúp" IconImageSource="help.png"
+              Command="{Binding HelpCommand}"
+              CommandParameter="https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell">
+    </MenuItem>-->
+
+    <MenuItem Text="Đăng xuất" IconImageSource="LogoutIcon.png"
+              Command="{Binding LogoutCommand}"
+              x:Name="LogoutEvent" Clicked="LogoutEvent_Clicked">
+    </MenuItem>
+</Shell>

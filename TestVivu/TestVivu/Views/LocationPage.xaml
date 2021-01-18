@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.LocationPage"
+             Title="Danh sách địa điểm">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Tìm kiếm" x:Name="SearchLocation"
+                       HorizontalTextAlignment="Center" TextChanged="SearchLocation_TextChanged">
+            </SearchBar>
+            
+            <ListView x:Name="LstLocation" SeparatorColor="YellowGreen"
+                      ItemSelected="LstLocation_ItemSelected" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding LocationImage}" Grid.Column="0" Grid.Row="0"></Image>
+
+                                <Label Text="{Binding LocationName}" TextColor="#8A2BE2"
+                                   FontAttributes="Bold" FontSize="Large" VerticalOptions="Center"
+                                   Grid.Column="1" Grid.Row="0"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

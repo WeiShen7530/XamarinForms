@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.AllHotelPage"
+             Title="Danh sách khách sạn">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Tìm kiếm" x:Name="SearchHotel"
+                       HorizontalTextAlignment="Center" TextChanged="SearchHotel_TextChanged">
+            </SearchBar>
+            
+            <ListView x:Name="LstAllHotel" ItemSelected="LstAllHotel_ItemSelected" RowHeight="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding HotelImage}" Aspect="AspectFill"
+                                       Grid.Column="0" Grid.Row="0"
+                                       Grid.RowSpan="3"></Image>
+
+                                <Label Text="{Binding HotelName}"
+                                       FontAttributes="Bold" TextColor="Red"
+                                       FontSize="20"
+                                       Grid.Row="0" Grid.Column="1"></Label>
+
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       Text="{Binding HotelAddress}" FontSize="20"></Label>
+
+                                <Label Grid.Row="2" Grid.Column="1">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Giá: VND " FontSize="20"></Span>
+                                            <Span Text="{Binding PRICE}" FontSize="20"
+                                                  FontAttributes="Bold"></Span>
+                                            <Span Text=".000" FontAttributes="Bold" FontSize="20"></Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

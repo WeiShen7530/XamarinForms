@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.LoginPage"
+             xmlns:viewModels="clr-namespace:TestVivu.ViewModels"
+             Title="Đăng nhập Vivu"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel></viewModels:LoginViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="VivuLogo.png" Grid.ColumnSpan="2" Grid.Row="0"
+                         HorizontalOptions="Center"
+                         x:Name="HomeBtn" BackgroundColor="Transparent">
+            </Image>
+
+            <Entry Grid.ColumnSpan="2" Grid.Row="1" Keyboard="Email"
+                   Placeholder="Tên người dùng" Text="{Binding Username}"></Entry>
+            
+            <Entry Grid.ColumnSpan="2" Grid.Row="2"
+                   Placeholder="Mật Khẩu" Text="{Binding Password}" IsPassword="True"></Entry>
+
+            <Button Grid.Column="0" Grid.Row="3"
+                    Text="Quên Mật Khẩu?" x:Name="ForgotBtn"
+                    CornerRadius="10" Margin="0,10,0,10"
+                    BackgroundColor="DarkOrange">
+            </Button>
+            
+            <Button Grid.Column="1" Grid.Row="3" Text="Đăng ký" x:Name="RegisterBtn"
+                    Clicked="RegisterBtn_Clicked" CornerRadius="10" Margin="0,10,0,10"
+                    BackgroundColor="DarkOrange">
+            </Button>
+
+            <Button Grid.ColumnSpan="2" Grid.Row="4" Text="Đăng nhập"
+                    Command="{Binding LoginCommand}" FontSize="Large"
+                    x:Name="GotoHomePage" Clicked="GotoHomePage_Clicked"
+                    CornerRadius="10" Margin="0,20,0,0"
+                    BackgroundColor="DeepSkyBlue" FontAttributes="Bold">
+            </Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

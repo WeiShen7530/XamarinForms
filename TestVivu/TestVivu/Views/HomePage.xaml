@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.HomePage"
+             xmlns:viewModels="clr-namespace:TestVivu.ViewModels"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             Title="Vivu DuyKhang"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <viewModels:AutoSlidingImageViewModel></viewModels:AutoSlidingImageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Địa điểm nổi tiếng"
+                       FontSize="18" FontAttributes="Bold" TextColor="DarkBlue"
+                       HorizontalTextAlignment="Center" Margin="5"
+                       HorizontalOptions="Center" VerticalTextAlignment="Center">
+                </Label>
+                <Label Grid.Row="0" Grid.Column="1" Text="Đặt phòng khách sạn"
+                       FontSize="18" FontAttributes="Bold" TextColor="DarkBlue"
+                       HorizontalTextAlignment="Center" Margin="5"
+                       HorizontalOptions="Center" VerticalTextAlignment="Center">
+                </Label>
+
+                <ImageButton Grid.Row="1" Grid.Column="0"
+                             Source="LocationLogo.jpg" BackgroundColor="Transparent"
+                             x:Name="LocationBtn" Clicked="LocationBtn_Clicked">
+                </ImageButton>
+                <ImageButton Grid.Row="1" Grid.Column="1"
+                             Source="BookingLogo.jpg" BackgroundColor="Transparent"
+                             x:Name="HotelBtn" Clicked="HotelBtn_Clicked">
+                </ImageButton>
+            </Grid>
+
+            <Label Text="Ưu đãi hôm nay" FontSize="28" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" Margin="5"
+                   TextColor="DarkRed"></Label>
+            <cv:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                    ShowIndicators="True" Margin="0,0,0,15"  
+                                    Position="{Binding ImagePosition}"
+                                    x:Name="MainCarouselView"
+                                    PositionSelected="MainCarouselView_PositionSelected">
+                <cv:CarouselViewControl.ItemsSource>
+                    <x:Array Type="{x:Type View}">
+                        <Image Source="http://tempwebapi.somee.com/ImagesData/DaLat.jpg"></Image>
+                        <Image Source="http://tempwebapi.somee.com/ImagesData/VungTau.jpg"></Image>
+                        <Image Source="http://tempwebapi.somee.com/ImagesData/PhuQuoc.jpg"></Image>
+                        <Image Source="http://tempwebapi.somee.com/ImagesData/HaNoi.jpg"></Image>
+                        <Image Source="http://tempwebapi.somee.com/ImagesData/HCM.jpg"></Image>
+                    </x:Array>
+                </cv:CarouselViewControl.ItemsSource>
+            </cv:CarouselViewControl>
+
+            <Button x:Name="LtChooseBtn" Clicked="LtChooseBtn_Clicked" Margin="0,0,0,5"
+                    FontSize="20" FontAttributes="Bold" CornerRadius="10"
+                    HorizontalOptions="Center" BackgroundColor="DeepSkyBlue"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

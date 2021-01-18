@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:viewModels="clr-namespace:TestVivu.ViewModels"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="TestVivu.Views.HotelDetailsPage">
+    <ContentPage.BindingContext>
+        <viewModels:AutoSlidingImageViewModel></viewModels:AutoSlidingImageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Image x:Name="htImg" HeightRequest="200"></Image>
+                    <Label x:Name="htName"
+                            FontSize="28" FontAttributes="Bold"
+                            HorizontalTextAlignment="Center" TextColor="DarkRed"></Label>
+                    <Label x:Name="htAddress"
+                            FontSize="24" FontAttributes="Bold"
+                            HorizontalTextAlignment="Center" TextColor="DarkBlue"></Label>
+                    <Label x:Name="htPrice" TextColor="Red"
+                            FontSize="24" FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"></Label>
+                    <Label x:Name="htIntro"
+                            FontSize="21" HorizontalTextAlignment="Center"></Label>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="CHỌN PHÒNG" BackgroundColor="DeepSkyBlue"
+                        x:Name="ReserveBtn" Clicked="ReserveBtn_Clicked"
+                        FontAttributes="Bold" FontSize="20" TextColor="White"
+                        CornerRadius="10" HorizontalOptions="CenterAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

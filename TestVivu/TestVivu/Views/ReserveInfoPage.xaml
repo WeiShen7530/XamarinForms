@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.Views.ReserveInfoPage"
+             Title="Thông tin đặt phòng">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <ScrollView>
+                <StackLayout>
+
+                    <Label Text="Tên" Margin="5" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="txtName" Margin="5" FontSize="20"></Label>
+                    <Label Text="Email" Margin="5" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="txtEmail" Margin="5" FontSize="20"></Label>
+                    <Label Text="Số điện thoại" Margin="5" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="txtPhone" Margin="5" FontSize="20"></Label>
+                    <Label Text="Địa chỉ" Margin="5" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="txtAddress" Margin="5" FontSize="20"></Label>
+
+                    <Grid Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Ngày nhận phòng" FontSize="20" FontAttributes="Bold" Visual="Default"
+                               Grid.Row="0" Grid.Column="0"></Label>
+                        <Label x:Name="dateCheckIn" Grid.Row="1" Grid.Column="0"></Label>
+
+                        <Label Text="Ngày trả phòng" FontSize="20" FontAttributes="Bold" Visual="Default"
+                               Grid.Row="0" Grid.Column="1"></Label>
+                        <Label x:Name="dateCheckOut" Grid.Row="1" Grid.Column="1"></Label>
+
+                        <Label Text="Người lớn" Margin="5" Grid.Row="2" Grid.Column="0"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                        <Label x:Name="adultsLbl" FontSize="20"
+                               Grid.Row="3" Grid.Column="0"></Label>
+
+                        <Label Text="Trẻ em" Margin="5" Grid.Row="2" Grid.Column="1"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                        <Label x:Name="childrenLbl" FontSize="20"
+                               Grid.Row="3" Grid.Column="1"></Label>
+                    </Grid>
+
+                    <Label Text="Loại phòng" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="RoomType" FontSize="20"></Label>
+
+                    <Label Text="Yêu cầu khác" Margin="5"
+                           FontSize="20" FontAttributes="Bold"></Label>
+                    <Label FontSize="20" x:Name="txtSpecialRequests" HeightRequest="100"></Label>
+
+                    <Label Text="Tổng tiền" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label FontSize="20" x:Name="MoneyLbl"
+                           Margin="5" TextColor="Red"></Label>
+
+                    <Button Text="OK" FontSize="20" FontAttributes="Bold" 
+                            Visual="Material" CornerRadius="10" BackgroundColor="DeepSkyBlue"
+                            x:Name="GotoHomePage" Clicked="GotoHomePage_Clicked"></Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

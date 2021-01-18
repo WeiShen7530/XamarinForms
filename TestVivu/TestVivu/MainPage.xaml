@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestVivu.MainPage"
+             xmlns:viewModels="clr-namespace:TestVivu.ViewModels"
+             Title="VivuDuyKhang">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Địa điểm nổi tiếng"
+                       FontSize="20" FontAttributes="Bold" TextColor="DarkBlue">
+                </Label>
+                <Label Grid.Row="0" Grid.Column="1" Text="Đặt phòng  khách sạn"
+                       FontSize="20" FontAttributes="Bold" TextColor="DarkBlue">
+                </Label>
+
+                <ImageButton Grid.Row="1" Grid.Column="0"
+                             Source="LocationLogo.jpg" BackgroundColor="Transparent"
+                             x:Name="LocationBtn" Clicked="LocationBtn_Clicked">
+                </ImageButton>
+                <ImageButton Grid.Row="1" Grid.Column="1"
+                             Source="BookingLogo.jpg" BackgroundColor="Transparent"
+                             x:Name="HotelBtn" Clicked="HotelBtn_Clicked">
+                </ImageButton>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
